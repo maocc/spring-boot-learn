@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,18 +27,17 @@ import java.util.List;
 @EnableConfigurationProperties({BlogProperties.class})
 @EnableScheduling
 @EnableAsync
-public class Application {
+public class Application{
 
 	public static void main(String[] args) {
 
 		SpringApplication.run(Application.class, args);
 
 	}
-
 	@Bean
 	public HttpMessageConverters fastJsonHttpMessageConverters() {
 
-		FastJsonHttpMessageConverter oFastConverter = new FastJsonHttpMessageConverter4();
+		FastJsonHttpMessageConverter4 oFastConverter = new FastJsonHttpMessageConverter4();
 
 		FastJsonConfig oFastJsonConfig = new FastJsonConfig();
 		oFastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);

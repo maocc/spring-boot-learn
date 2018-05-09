@@ -7,8 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import com.maocc.web.task.*;
 
 import java.util.concurrent.Future;
@@ -30,11 +29,7 @@ public class HelloController {
 	@Autowired
 	private FutureTask futureTask;
 
-	@ResponseBody
-	@RequestMapping("/hello")
-	public String hello() {
-		return "Hello World";
-	}
+
 
 
 	@ResponseBody
@@ -91,10 +86,15 @@ public class HelloController {
 	@RequestMapping("/")
 	public String index(ModelMap map) {
 		map.addAttribute("host", "http://www.baidu.com | " + blogProperties.getName() + " | " + blogProperties.getAge() + " | " + blogProperties.getDesc());
-
-
-
-		return "index";
+		return "hello";
+	}
+	@GetMapping(value = "/hello")
+	public String hello() {
+		return "hello";
+	}
+	@RequestMapping("/login")
+	public String login() {
+		return "login";
 	}
 
 	@RequestMapping("/helloError")

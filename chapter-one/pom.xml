@@ -10,7 +10,10 @@
         <module>springbootjpaprevious</module>
 		<module>jpa</module>
 		<module>multidatasourcejpa</module>
-	</modules>
+        <module>redis</module>
+        <module>mongodb</module>
+        <module>web</module>
+    </modules>
     <packaging>pom</packaging>
 
 	<name>chapter-one</name>
@@ -81,6 +84,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
 		</dependency>
 	</dependencies>
 
